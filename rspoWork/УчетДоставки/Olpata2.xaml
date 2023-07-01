@@ -1,0 +1,37 @@
+﻿<Window x:Class="УчетДоставки.Olpata2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетДоставки"
+        mc:Ignorable="d"
+        Title="Olpata2" Height="467" Width="522">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#70cdff" Offset="0"/>
+
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Ваш заказ" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" Height="58" Width="174"/>
+        <Label Content="Модель телефона:" HorizontalAlignment="Left" Margin="22,115,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="34" Width="161"/>
+        <Label Content="ФИО:" HorizontalAlignment="Left" Margin="22,149,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="34" Width="54"/>
+        <Label Content="Телефон:" HorizontalAlignment="Left" Margin="22,183,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="34" Width="85"/>
+        <Label Content="Адрес:" HorizontalAlignment="Left" Margin="22,217,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="34" Width="64"/>
+        <Label Content="Поломка:" HorizontalAlignment="Left" Margin="22,251,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="34" Width="138"/>
+        <Label x:Name="l1" Content="" HorizontalAlignment="Left" Margin="-302,115,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1" Height="34" Width="250" Grid.ColumnSpan="2"/>
+        <Label x:Name="l2" Content="" HorizontalAlignment="Left" Margin="-302,149,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1" Height="34" Width="250" Grid.ColumnSpan="2"/>
+        <Label x:Name="l3" Content="" HorizontalAlignment="Left" Margin="-302,183,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1" Height="34" Width="250" Grid.ColumnSpan="2"/>
+        <Label x:Name="l4" Content="" HorizontalAlignment="Left" Margin="-302,217,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1" Height="34" Width="250" Grid.ColumnSpan="2"/>
+        <Label x:Name="l5" Content="" HorizontalAlignment="Left" Margin="-302,251,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Grid.Column="1" Height="34" Width="250" Grid.ColumnSpan="2"/>
+        <Button Content="Оплатить" HorizontalAlignment="Center" Margin="0,343,0,0" VerticalAlignment="Top" Height="59" Width="172" BorderBrush="White" Background="White" FontSize="20" Click="Button_Click"/>
+        <Label Content="Итого к оплате:" HorizontalAlignment="Left" Margin="22,285,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="34" Width="138"/>
+        <Label x:Name="l6" Content="" HorizontalAlignment="Left" Margin="220,285,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" Height="34" Width="250"/>
+
+    </Grid>
+</Window>

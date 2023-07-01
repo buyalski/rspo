@@ -1,0 +1,224 @@
+﻿<Window x:Class="УчетДоставки.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:УчетДоставки"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="496.4" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#70cdff" Offset="0"/>
+            <GradientStop Color="#70cdff" Offset="1"/>
+            <GradientStop Color="#70cdff" Offset="0.429"/>
+
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <Window.Resources>
+        <Style x:Key="ComboboxButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="2,2,0,0">
+
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Duration="0:0:0.100" To="0,0,0,0">
+
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CmbButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="#FF2B2F46"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,70,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF2B2F46"/>
+                                <Setter Property="Foreground" Value="red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TB" TargetType="TextBox">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="BorderBrush" Value="Wheat"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid x:Name="root" Height="{TemplateBinding Height}" Width = "{TemplateBinding Width}" SnapsToDevicePixels="True">
+                            <Border x:Name="Background" BorderThickness="1" CornerRadius="2" Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"></Border>
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          BorderThickness="0"
+                                          Padding="{TemplateBinding Padding}"
+                                          IsTabStop="False"
+                                          Background="{x:Null}"
+                                          TextElement.Foreground="{TemplateBinding Foreground}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="Green"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+
+
+    <Grid Margin="0,0,0,36.4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Name="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Source="C:\Users\boris\Desktop\Labs\КПиЯП C#\Учет доставки\УчетДоставки\УчетДоставки\Source\Полоска.png"
+                       Margin="5" Height ="15" Width="15" MouseDown="Image_MouseDown_1"/>
+                <Image Source="Source/Крест.png" Margin="5,5,10,5" Height ="15" Width="15" MouseDown="Image_MouseDown"/>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Name ="Grid" Panel.ZIndex="999" Grid.Row="2" Height="160" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top"
+              Margin="25,42,0,0" Visibility="Hidden">
+            <Polygon Fill="Black" StrokeThickness="2" Stroke="AliceBlue"
+                     Points="0,8
+                     0,90
+                     190,90
+                     190,8
+                     37,8
+                     29,0
+                     21,8"/>
+            <Polygon Fill="#FF2B2F46" StrokeThickness="1" Stroke="Black"
+                     Points="0,8
+                     0,90
+                     190,90
+                     190,8
+                     37,8
+                     29,0
+                     21,8" Height="160" VerticalAlignment="Bottom"/>
+            <Grid Height="132" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Button Style="{StaticResource CmbButton}">
+                        <TextBlock Text="Русский" Width="77"/>
+                    </Button>
+                    <Button Style="{StaticResource CmbButton}">
+                        <TextBlock Text="English" Width="77"/>
+                    </Button>
+                    <Polygon Fill="White" Points="0,3,190,3" StrokeThickness="1" Stroke="White"/>
+                    <Button Style="{StaticResource CmbButton}">
+                        <TextBlock Text="Помощь" Width="79"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+
+
+        </Grid>
+
+        <TextBox x:Name="tb1"   Grid.Row="2" Style="{StaticResource TB}" Margin ="25,55,25,0" VerticalAlignment="Top"/>
+        <TextBlock IsHitTestVisible="False" FontSize="14" Text="Логин"
+                   Grid.Row="2" Margin="37,63,0,0" VerticalAlignment="Top" Foreground="Black">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tb1}" Value="">
+                            <Setter Property="Visibility" Value="Visible">
+
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+
+        <TextBox x:Name="tb2"   Grid.Row="2" Style="{StaticResource TB}" Margin ="25,117.2,25,0" VerticalAlignment="Top"/>
+        <TextBlock IsHitTestVisible="False" FontSize="14" Text="Пароль"
+                   Grid.Row="2" Margin="37,122.2,0,0" VerticalAlignment="Top" Foreground="Black">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tb2}" Value="">
+                            <Setter Property="Visibility" Value="Visible">
+
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="tb3"   Grid.Row="2" Style="{StaticResource TB}" Margin ="26,175.2,24,0" VerticalAlignment="Top"/>
+        <TextBlock IsHitTestVisible="False" FontSize="14" Text="Подтвердите пароль"
+                   Grid.Row="2" Margin="34,182.2,3,0" VerticalAlignment="Top" Foreground="Black">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tb3}" Value="">
+                            <Setter Property="Visibility" Value="Visible">
+
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="95,234.2,0,0" Grid.Row="2" VerticalAlignment="Top" Width="204" Height="46"
+                 BorderBrush="Black" Background="White" BorderThickness="2" Click="Button_Click_2"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="268,4.2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="30" RenderTransformOrigin="1.182,0.516"
+                Height="29" Background="White" FontSize="16" Foreground="Black"  BorderThickness="2" BorderBrush="Black" Click="Button_Click_1"/>
+        <Label Content="Если вы уже зарегистрированы -&gt;" HorizontalAlignment="Left" Margin="6,3.2,0,0" Grid.Row="3" VerticalAlignment="Top" FontSize="16"
+               Foreground="White"/>
+        <Label Content="Добро пожаловать!" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Foreground="White" FontSize="24"/>
+    </Grid>
+</Window>
